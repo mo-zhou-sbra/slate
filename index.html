@@ -4,106 +4,215 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Softbank Robotics NAOqi API Documentation *working progress*</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
-}
-.highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #999999;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #f6aa11;
 }
-.highlight .si {
-  color: #8f5536;
+.highlight .go {
+  color: #888888;
 }
-.highlight .se {
-  color: #8f5536;
+.highlight .gp {
+  color: #555555;
 }
-.highlight .nn {
-  color: #f4bf75;
+.highlight .gs {
 }
-.highlight .nc {
-  color: #f4bf75;
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
 }
 .highlight .no {
-  color: #f4bf75;
+  color: #66d9ef;
 }
-.highlight .na {
-  color: #6a9fb5;
+.highlight .kt {
+  color: #66d9ef;
 }
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;,&quot;c++&quot;,&quot;android&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="c++">c++</a>
+              <a href="#" data-language-name="android">android</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -112,8 +221,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://developer.softbankrobotics.com/'>Developer Portal</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -121,167 +229,363 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-
-<h1 id="authentication">Authentication</h1>
-
 <blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>In all following code examples, make sure to replace the IP address in default to your robot IP, or execute the python script with an &ndash;ip argument.
+If running on robot (Packaged and Installed) use the local Naoqi IP address indicated below</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Welcome to NAOqi API! We are excited to get building awesome applications on our robots. The pre-requisite to use the APIs can be found <a href='http://doc.aldebaran.com/2-5/dev/python/install_guide.html'> here </a> and we assume you have installed the Python SDKs with paths added. If you choose a different programming language to Python, please also add the SDK for that specific language of your choice!</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<h1 id="quick-start">Quick Start</h1>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<h2 id="make-pepper-listen-and-speak">Make Pepper Listen and Speak</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">qi</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+    <span class="c"># Get the service ALSpeechRecognition.</span>
+    <span class="n">asr_service</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALSpeechRecognition"</span><span class="p">)</span>
+    <span class="n">asr_service</span><span class="o">.</span><span class="n">setLanguage</span><span class="p">(</span><span class="s">"English"</span><span class="p">)</span>
+    <span class="c"># Example: Adds "yes", "no" and "please" to the vocabulary (without wordspotting)</span>
+    <span class="n">vocabulary</span> <span class="o">=</span> <span class="p">[</span><span class="s">"yes"</span><span class="p">,</span> <span class="s">"no"</span><span class="p">,</span> <span class="s">"please"</span><span class="p">]</span>
+    <span class="n">asr_service</span><span class="o">.</span><span class="n">setVocabulary</span><span class="p">(</span><span class="n">vocabulary</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="c">#You can say the above words to see reaction</span>
+    <span class="c"># Start the speech recognition engine with user Test_ASR</span>
+    <span class="n">asr_service</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">"Test_ASR"</span><span class="p">)</span>
+    <span class="c"># Get the service ALTextToSpeech.</span>
+    <span class="n">tts</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALTextToSpeech"</span><span class="p">)</span>
+    <span class="c">#Says a test std::string</span>
+    <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"Hello, speech recognition engine started"</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="c">#unsubscribe</span>
+    <span class="n">asr_service</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="s">"Test_ASR"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--ip"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"10.80.129.90"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Robot IP address. On robot or Local Naoqi: use '127.0.0.1'."</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--port"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9559</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Naoqi port number"</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"tcp://"</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">ip</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">RuntimeError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">"Can't connect to Naoqi at ip </span><span class="se">\"</span><span class="s">"</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">ip</span> <span class="o">+</span> <span class="s">"</span><span class="se">\"</span><span class="s"> on port "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">)</span> <span class="o">+</span><span class="s">".</span><span class="se">\n</span><span class="s">"</span>
+               <span class="s">"Please check your script arguments. Run with -h option for help."</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+</code></pre>
+<p>This example uses both the ALSpeechRecognition (ASR) and ALTextToSpeech (TTS) API Modules.
+It starts the speech recognition engine with a few words added to the dictionary,
+and makes the robot say some text using the TTS module.</p>
+
+<p>ASR module gives to the robot the ability to recognize predefined words or phrases in several languages, and relies on sophisticated speech recognition technologies provided by NUANCE.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+The parameter enableWordSpotting of ALSpeechRecognitionProxy::setVocabulary modifies the content of the returned result:
+If true: Phrase_i contains <...>phrase<...> Where the markers <...> indicates garbage results of the speech recognition.
+If false: Phrase_i contains the exact searched phrase.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
+<p>TTS module allows the robot to speak. It sends commands to a text-to-speech engine, and authorizes also voice customization. The result of the synthesis is sent to the robot’s loudspeakers.
+<aside class="notice">
+The output audio stream can be modified. For example, these effects are available:
+pitch shifting effect modifies the initial pitch of the voice,
+double voice effect produces a “delay/echo” effect on the main voice.
+Additional parameters are available for microAITalk engine.
+</aside></p>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><em>add more technical description of the code and the two modules, etc.</em></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+<h2 id="have-a-conversation-with-pepper">Have a Conversation with Pepper</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">qi</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+    <span class="c"># Getting the service ALDialog</span>
+    <span class="n">ALDialog</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALDialog"</span><span class="p">)</span>
+    <span class="n">ALDialog</span><span class="o">.</span><span class="n">setLanguage</span><span class="p">(</span><span class="s">"English"</span><span class="p">)</span>
+    <span class="c"># writing topics' qichat code as text strings (end-of-line characters are important!)</span>
+    <span class="c"># You could put the topic in a separate file and load it using the absolute path</span>
+    <span class="n">topic_content_1</span> <span class="o">=</span> <span class="p">(</span><span class="s">'topic: ~example_topic_content()</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'language: enu</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'concept:(food) [fruits chicken beef eggs]</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'u: (I [want "would like"] {some} _~food) Sure! You must really like $1 .</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'u: (how are you today) Hello human, I am fine thank you and you?</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'u: (Good morning Nao did you sleep well) No damn! You forgot to switch me off!</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'u: ([e:FrontTactilTouched e:MiddleTactilTouched e:RearTactilTouched]) You touched my head!</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+    <span class="n">topic_content_2</span> <span class="o">=</span> <span class="p">(</span><span class="s">'topic: ~dummy_topic()</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'language: enu</span><span class="se">\n</span><span class="s">'</span>
+                       <span class="s">'u:(test) [a b "c d" "e f g"]</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+    <span class="c"># Loading the topics directly as text strings</span>
+    <span class="n">topic_name_1</span> <span class="o">=</span> <span class="n">ALDialog</span><span class="o">.</span><span class="n">loadTopicContent</span><span class="p">(</span><span class="n">topic_content_1</span><span class="p">)</span>
+    <span class="n">topic_name_2</span> <span class="o">=</span> <span class="n">ALDialog</span><span class="o">.</span><span class="n">loadTopicContent</span><span class="p">(</span><span class="n">topic_content_2</span><span class="p">)</span>
+    <span class="c"># Activating the loaded topics</span>
+    <span class="n">ALDialog</span><span class="o">.</span><span class="n">activateTopic</span><span class="p">(</span><span class="n">topic_name_1</span><span class="p">)</span>
+    <span class="n">ALDialog</span><span class="o">.</span><span class="n">activateTopic</span><span class="p">(</span><span class="n">topic_name_2</span><span class="p">)</span>
+    <span class="c"># Starting the dialog engine - we need to type an arbitrary string as the identifier</span>
+    <span class="c"># We subscribe only ONCE, regardless of the number of topics we have activated</span>
+    <span class="n">ALDialog</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">'my_dialog_example'</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">raw_input</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Speak to the robot using rules from both the activated topics. Press Enter when finished:"</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c"># stopping the dialog engine</span>
+        <span class="n">ALDialog</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="s">'my_dialog_example'</span><span class="p">)</span>
+        <span class="c"># Deactivating all topics</span>
+        <span class="n">ALDialog</span><span class="o">.</span><span class="n">deactivateTopic</span><span class="p">(</span><span class="n">topic_name_1</span><span class="p">)</span>
+        <span class="n">ALDialog</span><span class="o">.</span><span class="n">deactivateTopic</span><span class="p">(</span><span class="n">topic_name_2</span><span class="p">)</span>
+        <span class="c"># now that the dialog engine is stopped and there are no more activated topics,</span>
+        <span class="c"># we can unload all topics and free the associated memory</span>
+        <span class="n">ALDialog</span><span class="o">.</span><span class="n">unloadTopic</span><span class="p">(</span><span class="n">topic_name_1</span><span class="p">)</span>
+        <span class="n">ALDialog</span><span class="o">.</span><span class="n">unloadTopic</span><span class="p">(</span><span class="n">topic_name_2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--ip"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"10.80.129.90"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Robot's IP address. If on a robot or a local Naoqi - use '127.0.0.1' (this is the default value)."</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--port"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9559</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"port number, the default value is OK in most cases"</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"tcp://{}:{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">ip</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">RuntimeError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Can't connect to Naoqi at IP {} (port {}).</span><span class="se">\n</span><span class="s">Please check your script's arguments."</span>
+               <span class="s">" Run with -h option for help.</span><span class="se">\n</span><span class="s">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">ip</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>This example sets up a topic following the qichat syntax, you could also load the topic in a .top file on the robot.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>The ALDialog module allows you to endow your robot with conversational skills by using a list of “rules” written and categorized in an appropriate way.</p>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
+<h3 id="rules">Rules</h3>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>ALDialog uses a list of written rules in order to manage the flow of the conversation between the human and the robot.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>These rules are of two types: User rules and Proposal rules.</p>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p>A User rule links a specific user input to possible robot output.
+<aside class="notice">
+u: (Hello Nao how are you today) Hello human, I am fine thank you and you?
+</aside></p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<p>A Proposal rule triggers a specific robot output without any user output beforehand.
+<aside class="notice">
+proposal: Have you seen that guy on the TV yesterday?
+   u1: (yes) He was crazy, no?
+   u1: (no) Really, I need to tell you.
+</aside></p>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<h3 id="grouped-by-topics">Grouped by Topics</h3>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<p>In order to properly manage the conversation between the human and the robot, the rules are grouped by Topics.</p>
+
+<aside class="notice">
+topic: ~greetings
+language: enu
+
+u: (Hello Nao how are you today) Hello human, I am fine thank you and you?
+u: ({&ldquo;Good morning&rdquo;} {Nao} did you sleep * well) No damn! You forgot to switch me off!
+proposal: human, are you going well ?
+   u1: (yes) I&rsquo;m so happy!
+   u1: (no) I&rsquo;m so sad
 </aside>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><em>give some examples of topic files with rules</em></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h2 id="make-pepper-play-an-animation">Make Pepper Play an Animation</h2>
+<pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">qi</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+    <span class="c"># Get the service ALAnimationPlayer.</span>
+    <span class="n">animation_player_service</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALAnimationPlayer"</span><span class="p">)</span>
+    <span class="c"># play an animation, this will return when the animation is finished</span>
+    <span class="n">animation_player_service</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">"animations/Stand/Gestures/Hey_1"</span><span class="p">)</span>
+    <span class="c"># play an animation, this will return right away</span>
+    <span class="n">future</span> <span class="o">=</span> <span class="n">animation_player_service</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">"animations/Stand/Gestures/Hey_1"</span><span class="p">,</span> <span class="n">_async</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c"># wait the end of the animation</span>
+    <span class="n">future</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+    <span class="c"># play an animation, this will return right away</span>
+    <span class="n">future</span> <span class="o">=</span> <span class="n">animation_player_service</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s">"animations/Stand/Gestures/Hey_1"</span><span class="p">,</span> <span class="n">_async</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c"># stop the animation</span>
+    <span class="n">future</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--ip"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"10.80.129.90"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Robot IP address. On robot or Local Naoqi: use '127.0.0.1'."</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--port"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9559</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Naoqi port number"</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"tcp://"</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">ip</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">RuntimeError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">"Can't connect to Naoqi at ip </span><span class="se">\"</span><span class="s">"</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">ip</span> <span class="o">+</span> <span class="s">"</span><span class="se">\"</span><span class="s"> on port "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">)</span> <span class="o">+</span><span class="s">".</span><span class="se">\n</span><span class="s">"</span>
+               <span class="s">"Please check your script arguments. Run with -h option for help."</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<p>ALAnimationPlayer allows you to start animations. This module is a wrapper of ALBehaviorManager, its goal is to have an easy way to start animations according to animation tags or the current posture of the robot.</p>
+
+<h3 id="animation-paths">Animation Paths</h3>
+
+<p>To run an application stored in a package, use: package_name/path_of_animation</p>
+
+<aside class = "notice">
+run(&ldquo;animations/Stand/Gestures/Hey_1&rdquo;)
+run(&ldquo;animations/[posture]/Gestures/Hey_1&rdquo;)
+run(&ldquo;my_dances/[robot]/salsa&rdquo;)
+</aside>
+
+<p>Start, stop or wait an animation. You can check out more prebuilt animations
+<a href='http://doc.aldebaran.com/2-5/naoqi/motion/alanimationplayer-advanced.html#animationplayer-list-behaviors-pepper'> </a> here</p>
+
+<p>Or, You can also use your own behaviors provided that you follow these requirements:</p>
+
+<p>Limit the content of the behavior to an animation (no speech, no complex behaviors), in order to guaranty a good compatibility with ALTextToSpeech.
+Lock the resources as follow: Wait 1 second at box startup, and lock resources during box execution - in order to secure a full compatibility with the automatic body language process.</p>
+
+<h3 id="tags">Tags</h3>
+
+<p>You can use any tag supplied by default. For further details, see <a href='http://doc.aldebaran.com/2-5/naoqi/motion/alanimationplayer-advanced.html#animationplayer-tags-pepper'>
+</a> here</p>
+
+<p>Additionally, you can declare new tagged animations using: ALAnimationPlayer.declarePathForTags</p>
+
+<p>You can also declare new tags for some specific animations (without modifying the animations) using: ALAnimationPlayer.addTagForAnimations</p>
+
+<h2 id="make-pepper-recognize-emotion">Make Pepper Recognize Emotion</h2>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">qi</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+    <span class="s">"""
+    This example uses the getEmotionalReaction method.
+    """</span>
+    <span class="c"># Get the services ALMood and ALTextToSpeech.</span>
+    <span class="n">moodService</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALMood"</span><span class="p">)</span>
+    <span class="n">tts</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALTextToSpeech"</span><span class="p">)</span>
+
+    <span class="c"># The robot tries to provocate an emotion by greeting you</span>
+    <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"Hey, you! Look at me. I'll tell you what your emotion is!"</span><span class="p">)</span>
+    <span class="c"># The robot will try to analysis your reaction during the next 3 seconds</span>
+    <span class="n">emotion</span> <span class="o">=</span> <span class="n">moodService</span><span class="o">.</span><span class="n">getEmotionalReaction</span><span class="p">()</span>
+    <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"You look"</span> <span class="o">+</span> <span class="n">emotion</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">emotion</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--ip"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"10.80.129.90"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Robot IP address. On robot or Local Naoqi: use '127.0.0.1'."</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--port"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9559</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"Naoqi port number"</span><span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"tcp://"</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">ip</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">RuntimeError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">"Can't connect to Naoqi at ip </span><span class="se">\"</span><span class="s">"</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">ip</span> <span class="o">+</span> <span class="s">"</span><span class="se">\"</span><span class="s"> on port "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="p">)</span> <span class="o">+</span><span class="s">".</span><span class="se">\n</span><span class="s">"</span>
+               <span class="s">"Please check your script arguments. Run with -h option for help."</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </code></pre>
+<p>ALMood works by estimating the mood of the focused user, provided by ALUserSession.</p>
+
+<p>ALMood’s estimation of valence (i.e. positivity or negativity) builds upon various extractors and memory keys; in particular, it currently uses head angles from ALGazeAnalysis, expressions properties and smile information from ALFaceCharacteristics, acoustic voice emotion analysis from ALVoiceEmotionAnalysis and semantic information from the words spoken by the user.</p>
+
+<p>ALMood’s estimation of attention (i.e. unengaged, semiEngaged or fullyEngaged) takes into account both the head orientation and eye gaze direction to calculate where the user is looking. For example, attention will be high if the user’s head is tilted upwards but their eyes are looking downwards at the robot.</p>
+
+<p>ALMood’s estimation of ambiance (i.e. calm or excited) takes into account the general sound level from ALAudioDevice and the amount of movement in front of the robot.</p>
+
+<p>ALMood retrieves information from the above extractors to combine them into high and low level extractors. Users can access the underlying representation of the emotional perception through a two-level key space: a consolidated information key (e.g. valence, attention) and more intermediate information key (e.g. smile, laugh).</p>
+
+<p>The calculation of high-level keys takes into account the observation at a given moment, the previous emotional state and the ambient and social context (e.g. noisy environment, smile too long, user profile).</p>
+
+<p>All emotional key values are associated with a confidence score between 0 and 1 to indicate how likely an estimation is.</p>
+
+<h3 id="basic-emotions">Basic Emotions</h3>
+
+<p>You can query for a basic emotional reaction over 3 seconds.</p>
+
+<p>The analysis starts when the method ALMood::getEmotionalReaction is called.
+<aside class = "notice">
+An emotional reaction value can be:
+“positive”
+“neutral”
+“negative”
+“unknown”
+</aside></p>
+
+<h3 id="emotional-descriptors">Emotional descriptors</h3>
+
+<p>Person emotion:
+The following descriptors provide mood data about the focused user.
+<aside class = "notice">
+Valence: whether the person’s mood is positive or negative.
+Attention: the amount of attention the focused person gives to the robot.
+Ambiance:
+</aside></p>
+
+<p>Excitement/Agitation: indicates the activity level of the environment, whether it’s calm or excited.</p>
+
+<h3 id="perceived-stimuli">Perceived stimuli</h3>
+
+<p>In its present state, the module reacts to the following stimuli:</p>
+
+<p>Person emotion:
+<aside class = "notice">
+Smile degree
+Facial expressions (neutral, happy, angry, sad)
+Head attitude (angles), relative to a robot
+Gaze patterns (evasion, attention, diversion)
+Utterance accoustic tone
+Linguistic semantics of speech
+Sensor touch
+</aside></p>
+
+<p>Ambiance:
+<aside class = "notice">
+Energy level of noise
+Movement detection
+</aside></p>
+
+<h2 id="advanced-topics">Advanced Topics</h2>
+
+<h1 id="running-a-service">Running a Service</h1>
+<pre class="highlight python tab-python"><code><span class="n">python</span> <span class="n">service_sample</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">qi</span><span class="o">-</span><span class="n">url</span> <span class="mf">10.80</span><span class="o">.</span><span class="mf">127.123</span>
+</code></pre>
+<blockquote>
+<p>To access the robot with SSH, use this code. You&rsquo;ll need to authenticate with your password.
+Then you can use a nice tool called qicli to access the existing API modules available on the robot</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>ssh nao@10.80.127.123
+qicli info
+qicli info ALSystem
+qicli call ALTextToSpeech.say Hello
+</code></pre>
+<p>You can either run a service remotely from your computer, or you can run it on the robot locally.</p>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>To launch the service remotely, use this code.
+Make sure to replace the IP address with your robot IP.</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>Common errors with NAOqi API:</p>
 
 <table><thead>
 <tr>
@@ -289,58 +593,16 @@ Remember — a happy kitten is an authenticated kitten!
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
 </tbody></table>
+
+<p><em>examples of error</em></p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="c++">c++</a>
+                <a href="#" data-language-name="android">android</a>
           </div>
       </div>
     </div>
