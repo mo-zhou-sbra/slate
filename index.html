@@ -767,6 +767,20 @@ qicli info ALSystem <br>
 qicli call ALTextToSpeech.say Hello <br>
 </aside>
 
+<h2 id="sample-robot-application">Sample Robot Application</h2>
+
+<p>Controller :    Service written in python <br>
+Tablet:         Webpage written in HTML + Javascript <br>
+Dialog:         Qichat <br></p>
+
+<p>Here is a color app which demonstrates the MVC (Model View Controller) architecture of our robot application. <a href="https://github.com/softbank-robotics-america/API-Tutorial/blob/master/working-Color-App.zip" target="_blank">Download the Color App on GitHub</a></p>
+
+<p>→ Expose a method to be called by Javascript</p>
+
+<p>→ Subscribe to the events raised by the QiChat</p>
+
+<p>→ Communicate back to the tablet to change the background’s color</p>
+
 <h2 id="find-the-logs">Find the Logs</h2>
 
 <p>System:
@@ -776,20 +790,6 @@ tail -f /var/log/naoqi/servicemanager/system.Naoqi_error.log</p>
 <p>Services:
 tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>.log
 tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>_error.log</p>
-
-<h2 id="sample-robot-application">Sample Robot Application</h2>
-
-<p>Controller :    Service written in python <br>
-Tablet:         Webpage written in HTML + Javascript <br>
-Dialog:         Qichat <br></p>
-
-<p>Here is a color app which demonstrates the MVC (Model View Controller) architecture of our robot application. <a href="https://github.com/softbank-robotics-america/API-Tutorial/blob/master/working-Color-App.zip" download>Download the Color App on GitHub</a></p>
-
-<p>→ Expose a method to be called by Javascript</p>
-
-<p>→ Subscribe to the events raised by the QiChat</p>
-
-<p>→ Communicate back to the tablet to change the background’s color</p>
 
           <h1 id="errors">Errors</h1>
 
