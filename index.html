@@ -231,10 +231,10 @@
 
 <blockquote>
 <p>In all following code examples, make sure to replace the IP address in default to your robot IP, or execute the python script with an &ndash;ip argument.
-If running on robot (Packaged and Installed) use the local Naoqi IP address indicated below</p>
+If running on robot (Packaged and Installed) use the local Naoqi IP address indicated below.</p>
 </blockquote>
 
-<p>Welcome to NAOqi API! We are excited to get building awesome applications on our robots. The pre-requisite to use the APIs can be found <a href='http://doc.aldebaran.com/2-5/dev/python/install_guide.html'> here </a> and we assume you have installed the Python SDKs with paths added. If you choose a different programming language to Python, please also add the SDK for that specific language of your choice!</p>
+<p>Welcome to NAOqi API Tutorial. We are excited to start building awesome applications on our robots. The pre-requisite to use the APIs can be found <a href='http://doc.aldebaran.com/2-5/dev/python/install_guide.html'> here </a> and we assume you have installed the Python SDKs with paths added. If you choose a different programming language to Python, please also add the SDK for that specific language of your choice.</p>
 
 <h1 id="quick-start">Quick Start</h1>
 
@@ -284,21 +284,13 @@ and makes the robot say some text using the TTS module.</p>
 
 <p>ASR module gives to the robot the ability to recognize predefined words or phrases in several languages, and relies on sophisticated speech recognition technologies provided by NUANCE.</p>
 
-<aside class="notice">
-The parameter enableWordSpotting of ALSpeechRecognitionProxy::setVocabulary modifies the content of the returned result:
-If true: Phrase_i contains <...>phrase<...> Where the markers <...> indicates garbage results of the speech recognition.
-If false: Phrase_i contains the exact searched phrase.
-</aside>
+<p>Before starting, ALSpeechRecognition needs to be fed by the list of phrases that should be recognized. Once started, ALSpeechRecognition places in the key SpeechDetected, a boolean that specifies if a speaker is currently heard or not. If a speaker is heard, the element of the list that best matches what is heard by the robot is placed in the key WordRecognized. If a speaker is heard, the element of the list that best matches what is heard by the robot is placed in the key WordRecognizedAndGrammar.</p>
 
-<p>TTS module allows the robot to speak. It sends commands to a text-to-speech engine, and authorizes also voice customization. The result of the synthesis is sent to the robot’s loudspeakers.
-<aside class="notice">
-The output audio stream can be modified. For example, these effects are available:
-pitch shifting effect modifies the initial pitch of the voice,
-double voice effect produces a “delay/echo” effect on the main voice.
-Additional parameters are available for microAITalk engine.
-</aside></p>
+<p>TTS module allows the robot to speak. It sends commands to a text-to-speech engine, and authorizes also voice customization. The result of the synthesis is sent to the robot’s loudspeakers.</p>
 
-<p><em>add more technical description of the code and the two modules, etc.</em></p>
+<p>In this example, we have added &ldquo;yes&rdquo;, &ldquo;no&rdquo; and &ldquo;please&rdquo; to the vocabulary so you can test the reaction by saying &ldquo;yes&rdquo;, &ldquo;no&rdquo; or &ldquo;please&rdquo;. Pepper should respond by saying &ldquo;Hello, speech recognition engine started&rdquo; if the speech recognition works.</p>
+
+<p>You can find more about the ALTextToSpeech API Module  <a href='http://doc.aldebaran.com/2-5/naoqi/audio/altexttospeech-api.html#altexttospeech-api'>here</a> and ALSpeechRecognition API Module <a href='http://doc.aldebaran.com/2-5/naoqi/audio/alspeechrecognition-api.html?highlight=alspeechre#ALSpeechRecognitionProxy'>here</a>.</p>
 
 <h2 id="have-a-conversation-with-pepper">Have a Conversation with Pepper</h2>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">qi</span>
@@ -359,7 +351,7 @@ Additional parameters are available for microAITalk engine.
         <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">main</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </code></pre>
-<p>This example sets up a topic following the qichat syntax, you could also load the topic in a .top file on the robot.</p>
+<p>This example sets up a topic following the QiChat syntax, you could also load the topic in a .top file on the robot.</p>
 
 <p>The ALDialog module allows you to endow your robot with conversational skills by using a list of “rules” written and categorized in an appropriate way.</p>
 
@@ -396,7 +388,21 @@ proposal: human, are you going well ?
    u1: (no) I&rsquo;m so sad
 </aside>
 
-<p><em>give some examples of topic files with rules</em></p>
+<h3 id="collaborative-dialog-vs-applications">Collaborative dialog vs applications</h3>
+
+<p>We can differentiate three steps in robot life: autonomous life, collaborative dialog (interactive state) and your application. Collaborative dialog allows running your application by voice. You can simply add trigger sentences in the manifest of your application or add more advanced dialog.</p>
+
+<aside class="notice">
+topic: ~startmyweather
+language: enu
+
+include: lexicon_enu.top
+
+u: (start weather) are you sure?
+u1: (~yes) ok ^switchFocus(myweather/.)
+</aside>
+
+<p>Find more about QiChat rules <a href='http://doc.aldebaran.com/2-5/naoqi/interaction/dialog/aldialog_syntax_toc.html'>here</a></p>
 
 <h2 id="make-pepper-play-an-animation">Make Pepper Play an Animation</h2>
 <pre class="highlight python tab-python"><code>
@@ -440,14 +446,8 @@ proposal: human, are you going well ?
 
 <p>To run an application stored in a package, use: package_name/path_of_animation</p>
 
-<aside class = "notice">
-run(&ldquo;animations/Stand/Gestures/Hey_1&rdquo;)
-run(&ldquo;animations/[posture]/Gestures/Hey_1&rdquo;)
-run(&ldquo;my_dances/[robot]/salsa&rdquo;)
-</aside>
-
 <p>Start, stop or wait an animation. You can check out more prebuilt animations
-<a href='http://doc.aldebaran.com/2-5/naoqi/motion/alanimationplayer-advanced.html#animationplayer-list-behaviors-pepper'> </a> here</p>
+<a href='http://doc.aldebaran.com/2-5/naoqi/motion/alanimationplayer-advanced.html#animationplayer-list-behaviors-pepper'>here </a></p>
 
 <p>Or, You can also use your own behaviors provided that you follow these requirements:</p>
 
@@ -471,19 +471,26 @@ Lock the resources as follow: Wait 1 second at box startup, and lock resources d
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+
     <span class="s">"""
-    This example uses the getEmotionalReaction method.
+    1st example uses the currentPersonState method.
     """</span>
-    <span class="c"># Get the services ALMood and ALTextToSpeech.</span>
+    <span class="c"># Get the service ALMood.</span>
     <span class="n">moodService</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALMood"</span><span class="p">)</span>
     <span class="n">tts</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">"ALTextToSpeech"</span><span class="p">)</span>
+    <span class="n">valence</span> <span class="o">=</span> <span class="n">moodService</span><span class="o">.</span><span class="n">currentPersonState</span><span class="p">()[</span><span class="s">"valence"</span><span class="p">][</span><span class="s">"value"</span><span class="p">]</span>
+    <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"your current state is "</span> <span class="o">+</span> <span class="n">valence</span><span class="p">)</span>
+
+    <span class="s">"""
+    2nd example uses the getEmotionalReaction method.
+    """</span>
+    <span class="c"># Get the services ALMood and ALTextToSpeech.</span>
 
     <span class="c"># The robot tries to provocate an emotion by greeting you</span>
     <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"Hey, you! Look at me. I'll tell you what your emotion is!"</span><span class="p">)</span>
     <span class="c"># The robot will try to analysis your reaction during the next 3 seconds</span>
     <span class="n">emotion</span> <span class="o">=</span> <span class="n">moodService</span><span class="o">.</span><span class="n">getEmotionalReaction</span><span class="p">()</span>
-    <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"You look"</span> <span class="o">+</span> <span class="n">emotion</span><span class="p">)</span>
-    <span class="k">print</span> <span class="n">emotion</span>
+    <span class="n">tts</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s">"You reaction is"</span> <span class="o">+</span> <span class="n">emotion</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
@@ -502,15 +509,9 @@ Lock the resources as follow: Wait 1 second at box startup, and lock resources d
         <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">main</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
 </code></pre>
-<p>ALMood works by estimating the mood of the focused user, provided by ALUserSession.</p>
+<p>ALMood works by estimating the mood of the focused user, provided by ALUserSession. The first example is how to get current valence and the second example is to get emotional reaction after a provocation.</p>
 
 <p>ALMood’s estimation of valence (i.e. positivity or negativity) builds upon various extractors and memory keys; in particular, it currently uses head angles from ALGazeAnalysis, expressions properties and smile information from ALFaceCharacteristics, acoustic voice emotion analysis from ALVoiceEmotionAnalysis and semantic information from the words spoken by the user.</p>
-
-<p>ALMood’s estimation of attention (i.e. unengaged, semiEngaged or fullyEngaged) takes into account both the head orientation and eye gaze direction to calculate where the user is looking. For example, attention will be high if the user’s head is tilted upwards but their eyes are looking downwards at the robot.</p>
-
-<p>ALMood’s estimation of ambiance (i.e. calm or excited) takes into account the general sound level from ALAudioDevice and the amount of movement in front of the robot.</p>
-
-<p>ALMood retrieves information from the above extractors to combine them into high and low level extractors. Users can access the underlying representation of the emotional perception through a two-level key space: a consolidated information key (e.g. valence, attention) and more intermediate information key (e.g. smile, laugh).</p>
 
 <p>The calculation of high-level keys takes into account the observation at a given moment, the previous emotional state and the ambient and social context (e.g. noisy environment, smile too long, user profile).</p>
 
@@ -541,47 +542,254 @@ Ambiance:
 
 <p>Excitement/Agitation: indicates the activity level of the environment, whether it’s calm or excited.</p>
 
-<h3 id="perceived-stimuli">Perceived stimuli</h3>
+<h1 id="advanced-topics">Advanced Topics</h1>
 
-<p>In its present state, the module reacts to the following stimuli:</p>
+<h2 id="create-a-service">Create a Service</h2>
 
-<p>Person emotion:
-<aside class = "notice">
-Smile degree
-Facial expressions (neutral, happy, angry, sad)
-Head attitude (angles), relative to a robot
-Gaze patterns (evasion, attention, diversion)
-Utterance accoustic tone
-Linguistic semantics of speech
-Sensor touch
-</aside></p>
+<p>A service is a background process. It is always running and advertises : <br>
+- Methods <br>
+- Signals <br>
+- Properties <br></p>
 
-<p>Ambiance:
-<aside class = "notice">
-Energy level of noise
-Movement detection
-</aside></p>
+<h2 id="qi-framework">qi Framework</h2>
+<pre class="highlight python tab-python"><code><span class="c">#service example</span>
+<span class="kn">import</span> <span class="nn">qi</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-<h2 id="advanced-topics">Advanced Topics</h2>
 
-<h1 id="running-a-service">Running a Service</h1>
-<pre class="highlight python tab-python"><code><span class="n">python</span> <span class="n">service_sample</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">qi</span><span class="o">-</span><span class="n">url</span> <span class="mf">10.80</span><span class="o">.</span><span class="mf">127.123</span>
+<span class="k">class</span> <span class="nc">ServiceSample</span><span class="p">:</span>
+    <span class="n">services_connected</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">connected_signals</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">number_of_activities_launched</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application</span><span class="p">):</span>
+        <span class="c"># Getting a session that will be reused everywhere</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">application</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">application</span><span class="o">.</span><span class="n">session</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">activities_launched</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Signal</span><span class="p">()</span>
+
+        <span class="c"># Getting a logger. Logs will be in /var/log/naoqi/servicemanager/{application id}.{service name}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service_name</span><span class="p">)</span>
+
+        <span class="c"># Do some initializations before the service is registered to NAOqi</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Initializing..."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect_services</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Initialized!"</span><span class="p">)</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">start_service</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Starting..."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscribe_to_autonomous_life</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Started!"</span><span class="p">)</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">stop_service</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># probably useless, unless one method needs to stop the service from inside.</span>
+        <span class="c"># external naoqi scripts should use ALServiceManager.stopService if they need to stop it.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Stopping service..."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Stopped!"</span><span class="p">)</span>
+
+    <span class="nd">@qi.bind</span><span class="p">(</span><span class="n">methodName</span><span class="o">=</span><span class="s">"getNumberActivitiesLaunched"</span><span class="p">,</span> <span class="n">paramsType</span><span class="o">=</span><span class="p">(),</span> <span class="n">returnType</span><span class="o">=</span><span class="n">qi</span><span class="o">.</span><span class="n">Int32</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_number_activities_launched</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_activities_launched</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">connect_services</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># connect all services required by your module</span>
+        <span class="c"># done in async way over 30s,</span>
+        <span class="c"># so it works even if other services are not yet ready when you start your module</span>
+        <span class="c"># this is required when the service is autorun as it may start before other modules...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Connecting services...'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">services_connected</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Promise</span><span class="p">()</span>
+        <span class="n">services_connected_fut</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">services_connected</span><span class="o">.</span><span class="n">future</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_services</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">'ALMemory'</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">life</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="s">'ALAutonomousLife'</span><span class="p">)</span>
+                <span class="c"># connect other services if needed...</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">'All services are now connected'</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">services_connected</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">except</span> <span class="nb">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">'Still missing some service:</span><span class="se">\n</span><span class="s"> {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+        <span class="n">get_services_task</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">PeriodicTask</span><span class="p">()</span>
+        <span class="n">get_services_task</span><span class="o">.</span><span class="n">setCallback</span><span class="p">(</span><span class="n">get_services</span><span class="p">)</span>
+        <span class="n">get_services_task</span><span class="o">.</span><span class="n">setUsPeriod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">))</span>  <span class="c"># check every 2s</span>
+        <span class="n">get_services_task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">services_connected_fut</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">30</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c"># timeout = 30s</span>
+            <span class="n">get_services_task</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="k">except</span> <span class="nb">RuntimeError</span><span class="p">:</span>
+            <span class="n">get_services_task</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">'Failed to reach all services after 30 seconds'</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="nb">RuntimeError</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">subscribe_to_autonomous_life</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_memory_subscriber</span><span class="p">(</span><span class="s">"AutonomousLife/FocusedActivity"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_focused_activity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_memory_subscriber</span><span class="p">(</span><span class="s">"AutonomousLife/State"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_state_changed</span><span class="p">)</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">on_focused_activity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">activity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"FocusedActivity signal raised: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">activity</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"New focused activity: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">number_of_activities_launched</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activities_launched</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_activities_launched</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Number of activities focused since last activation: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_activities_launched</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Just going back to IDLE, discard"</span><span class="p">)</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">on_state_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"State signal raised: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s">"disabled"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"AutonomousLife disabled, resetting count"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">number_of_activities_launched</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activities_launched</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"AutonomousLife is changing state but remains activated"</span><span class="p">)</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">add_memory_subscriber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="c"># add memory subscriber utility function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Subscribing to {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">subscriber</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="n">con</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connected_signals</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">sub</span><span class="p">,</span> <span class="n">con</span><span class="p">])</span>
+        <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Error while subscribing: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">remove_memory_subscribers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># remove memory subscribers utility function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"unsubscribing to all signals..."</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">sub</span><span class="p">,</span> <span class="n">con</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected_signals</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">sub</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+            <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Error while unsubscribing: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+    <span class="nd">@qi.nobind</span>
+    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># called when your module is stopped</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Cleaning..."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remove_memory_subscribers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"End!"</span><span class="p">)</span>
+
+    <span class="c"># ################# #</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="c"># with this you can run the script for tests on remote robots</span>
+    <span class="c"># run : python my_super_service.py --qi-url 123.123.123.123</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">qi</span><span class="o">.</span><span class="n">Application</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">service_instance</span> <span class="o">=</span> <span class="n">ServiceSample</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">service_id</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">registerService</span><span class="p">(</span><span class="n">service_instance</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span> <span class="n">service_instance</span><span class="p">)</span>
+    <span class="n">service_instance</span><span class="o">.</span><span class="n">start_service</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="n">service_instance</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">unregisterService</span><span class="p">(</span><span class="n">service_id</span><span class="p">)</span>
+
 </code></pre>
-<blockquote>
+<h3 id="qi-application-api">qi.Application API</h3>
+
+<p>Application initializes the qi framework, it extract –qi-* commandline arguments and initialise various options accordingly. It also provides facilities to connect the main session. This ease the creation of console applications that connects to a session or want to be standalone.</p>
+
+<p>You can pass the following arguments to your application to control the session:</p>
+
+<p>–qi-url : address of the session to connect to
+–qi-listen-url : address on which the session will listen
+–qi-standalone : make a standalone session (use –qi-listen-url to set the listen url)
+By default the session url is set to “tcp://127.0.0.1:9559” and the listen url to “tcp://0.0.0.0:0”.</p>
+
+<p>If raw is specified there wont be a session embedded into the application and you are free to create and connect a session yourself if needed.</p>
+
+<p>if autoExit is set to True, a session disconnection will quit the program. Set autoExit to False to inhibit this behavior. By default autoExit is True.</p>
+
+<p>Application will parse your arguments and catch –qi-* arguments.</p>
+
+<p>For a normal application you have to call start to let the Session embedded into the application connect. If you want to handle –help yourself you can do that before the application starts avoiding a useless connection to the session.</p>
+
+<h3 id="qi-session-api">qi.Session API</h3>
+
+<p>A session connect to a standalone qi.Session. Once connected the session can:</p>
+
+<p>advertise new services using qi.Session.registerService()
+get services using qi.Session.service()</p>
+
+<h3 id="qi-future-api">qi.Future API</h3>
+
+<p>Promise and Future are a way to synchronise data between multiples threads. The number of future associated to a promise is not limited. Promise is the setter, future is the getter. Basically, you have a task to do, that will return a value, you give it a Promise. Then you have others thread that depend on the result of that task, you give them future associated to that promise, the future will block until the value or an error is set by the promise.</p>
+
+<h3 id="qi-signal-api">qi.Signal API</h3>
+
+<p>Signal allows communication between threads. One thread emits events, other threads register callback to the signal, and process the events appropriately.</p>
+
+<h3 id="bind-api">Bind API</h3>
+
+<p>qi.bind allow specifying types for bound methods. By default methods parameters are of type AnyValue and always return an AnyValue.</p>
+
+<p>With qi.bind you can specify which types the function really accept and return. With qi.nobind you can hide methods.</p>
+
+<h3 id="using-qicli-commands">Using qicli commands</h3>
+
+<p>qicli commands allows you to:</p>
+
+<ol>
+<li>See information</li>
+<li>Use methods</li>
+<li>Watch signals</li>
+</ol>
+
+<p>You can either run a service remotely from your computer, or you can run it on the robot locally. Change the IP to your robot IP address.
+<aside class = "notice">
+python service_sample.py &ndash;qi-url 10.80.127.123
+</aside></p>
+
 <p>To access the robot with SSH, use this code. You&rsquo;ll need to authenticate with your password.
-Then you can use a nice tool called qicli to access the existing API modules available on the robot</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>ssh nao@10.80.127.123
-qicli info
-qicli info ALSystem
-qicli call ALTextToSpeech.say Hello
-</code></pre>
-<p>You can either run a service remotely from your computer, or you can run it on the robot locally.</p>
+Then you can use qicli commands.</p>
 
-<blockquote>
-<p>To launch the service remotely, use this code.
-Make sure to replace the IP address with your robot IP.</p>
-</blockquote>
+<aside class = "notice"> <b>Use secure shell to access the robot </b> <br>
+ssh nao@10.80.127.123 <br>
+<b>Then you can access the qicli commands</b> <br>
+qicli info <br>
+qicli info ALSystem <br>
+qicli call ALTextToSpeech.say Hello <br>
+</aside>
+
+<h2 id="find-the-logs">Find the Logs</h2>
+
+<p>System:
+tail -f /var/log/naoqi/servicemanager/system.Naoqi.log
+tail -f /var/log/naoqi/servicemanager/system.Naoqi_error.log</p>
+
+<p>Services:
+tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>.log
+tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>_error.log</p>
+
+<h2 id="sample-robot-application">Sample Robot Application</h2>
+
+<p>Controller :    Service written in python <br>
+Tablet:         Webpage written in HTML + Javascript <br>
+Dialog:         Qichat <br></p>
+
+<p>Here is a color app which demonstrates the MVC (Model View Controller) architecture of our robot application. <a href="file:///Users/mo.zhou/Training/python-app-colors-example/working-Color-App.zip" download>Download link</a></p>
+
+<p>→ Expose a method to be called by Javascript</p>
+
+<p>→ Subscribe to the events raised by the QiChat</p>
+
+<p>→ Communicate back to the tablet to change the background’s color</p>
 
           <h1 id="errors">Errors</h1>
 
