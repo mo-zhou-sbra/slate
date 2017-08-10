@@ -563,15 +563,6 @@ qicli info ALSystem <br>
 qicli call ALTextToSpeech.say Hello <br>
 </aside>
 
-## Find the Logs
-
-System:
-tail -f /var/log/naoqi/servicemanager/system.Naoqi.log
-tail -f /var/log/naoqi/servicemanager/system.Naoqi_error.log
-
-Services:
-tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>.log
-tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>_error.log
 
 ## Sample Robot Application
 
@@ -586,3 +577,14 @@ Here is a color app which demonstrates the MVC (Model View Controller) architect
 → Subscribe to the events raised by the QiChat
 
 → Communicate back to the tablet to change the background’s color
+
+
+## Find the Logs
+
+System:
+tail -f /var/log/naoqi/servicemanager/system.Naoqi.log
+tail -f /var/log/naoqi/servicemanager/system.Naoqi_error.log
+
+Services:
+tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>.log
+tail -f /var/log/naoqi/servicemanager/<app-uuid>.<service-name>_error.log
