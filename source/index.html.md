@@ -579,7 +579,7 @@ Controller : 	Service written in python <br>
 Tablet: 		Webpage written in HTML + Javascript <br>
 Dialog: 		Qichat <br>
 
-Here is a color app which demonstrates the MVC (Model View Controller) architecture of our robot application. <a href="file:///Users/mo.zhou/Training/python-app-colors-example/working-Color-App.zip" download>Download link</a>
+Here is a color app which demonstrates the MVC (Model View Controller) architecture of our robot application. <a href="https://github.com/softbank-robotics-america/API-Tutorial/blob/master/working-Color-App.zip" download>Download the Color App on GitHub</a>
 
 → Expose a method to be called by Javascript
 
